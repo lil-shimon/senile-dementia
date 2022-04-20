@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 26
 
     defaultConfig {
         applicationId "com.example.seniledementia"
         minSdk 30
-        targetSdk 31
+        targetSdk 26
         versionCode 1
         versionName "1.0"
 
@@ -34,4 +34,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.wear:wear:1.1.0'
+
+    // for wear ui library
+    implementation 'androidx.wear:wear:1.0.0'
+
+    // wearable support library
+    implementation 'com.google.android.support:wearable:2.5.0'
+
+    // other classes (like watch face)
+    compileOnly 'com.google.android.wearable:wearable:2.5.0'
 }
