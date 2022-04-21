@@ -49,5 +49,21 @@ class MainActivity : Activity() {
         reply.text = ""
         sureButton.text = "対応"
         cheerButton.text = "応援"
+
+        sureButton.setOnClickListener {
+            adaptMessage("対応します")
+        }
+
+        cheerButton.setOnClickListener {
+            adaptMessage("応援が必要です")
+        }
+    }
+
+    /**
+     * 返信メッセージをセット
+     * @param {String} message
+     */
+    private fun adaptMessage(message: String) {
+        reply.text = message
     }
 }
