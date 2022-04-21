@@ -26,14 +26,18 @@
                         android:layout_height="wrap_content"
                         android:text="@string/hello_world"/>
 
-                <Button android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/cheer_button"
-                />
-                <Button android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/sure_button"
-                />
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:orientation="horizontal">
+                    <Button android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cheer_button"
+                    />
+                    <Button android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/sure_button"
+                    />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
