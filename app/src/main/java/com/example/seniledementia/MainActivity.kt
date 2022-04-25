@@ -4,7 +4,11 @@ import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.example.seniledementia.databinding.ActivityMainBinding
+import android.util.Log
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : Activity() {
 
@@ -42,6 +46,8 @@ class MainActivity : Activity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getFirebaseToken()
+
         reply = findViewById(R.id.reply)
         sureButton = findViewById(R.id.sure_button)
         cheerButton = findViewById(R.id.cheer_button)
@@ -65,5 +71,29 @@ class MainActivity : Activity() {
      */
     private fun adaptMessage(message: String) {
         reply.text = message
+    }
+
+    /**
+     * FirebaseのTokenを取得
+     */
+    private fun getFirebaseToken() {
+
+        var TAG = "MyLog"
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log and toast
+            val msg = getString(R.string.msg_token_fmt, token)
+            Log.d(TAG, "firebase Token is:")
+            Log.d(TAG, msg)
+            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        })
     }
 }

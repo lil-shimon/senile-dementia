@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -43,4 +44,11 @@ dependencies {
 
     // other classes (like watch face)
     compileOnly 'com.google.android.wearable:wearable:2.9.0'
+
+    // firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // Cloud Messaging
+    implementation 'com.google.firebase:firebase-messaging:23.0.3'
 }
