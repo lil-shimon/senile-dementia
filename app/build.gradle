@@ -49,6 +49,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    // Declare the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics'
+
     // Cloud Messaging
     implementation 'com.google.firebase:firebase-messaging:23.0.3'
 }

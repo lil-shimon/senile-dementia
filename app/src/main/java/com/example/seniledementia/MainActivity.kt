@@ -10,6 +10,8 @@ import android.util.Log
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 
+import com.example.seniledementia.services.FirebaseMessagingService
+
 class MainActivity : Activity() {
 
     /**
