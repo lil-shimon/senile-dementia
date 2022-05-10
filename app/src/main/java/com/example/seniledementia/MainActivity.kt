@@ -1,16 +1,18 @@
 package com.example.seniledementia
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.seniledementia.databinding.ActivityMainBinding
 import android.util.Log
+import android.view.View
+import com.google.android.gms.common.api.internal.RegisterListenerMethod
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-
-import com.example.seniledementia.services.FirebaseMessagingService
+import java.util.SimpleTimeZone
 
 class MainActivity : Activity() {
 
@@ -23,14 +25,15 @@ class MainActivity : Activity() {
      */
     private lateinit var binding: ActivityMainBinding
 
-    // 返信したメッセージ
-    private lateinit var reply: TextView
-
     // 対応ボタン
     private lateinit var sureButton: Button
 
     // 応援ボタン
     private lateinit var cheerButton: Button
+
+    private lateinit var loginButton: Button
+
+    private lateinit var registerButton: Button
 
     /**
      * 基底クラスMainActivityのonCreateメソッドをoverrideしている
@@ -50,29 +53,23 @@ class MainActivity : Activity() {
 
         getFirebaseToken()
 
-        reply = findViewById(R.id.reply)
         sureButton = findViewById(R.id.sure_button)
         cheerButton = findViewById(R.id.cheer_button)
+        loginButton = findViewById(R.id.launch_login_button)
+        registerButton = findViewById(R.id.launch_register_button)
 
-        reply.text = ""
         sureButton.text = "対応"
         cheerButton.text = "応援"
 
-        sureButton.setOnClickListener {
-            adaptMessage("対応します")
+        loginButton.setOnClickListener {
+            var intent = Intent(application, LoginActivity::class.java)
+            startActivity(intent)
         }
 
-        cheerButton.setOnClickListener {
-            adaptMessage("応援が必要です")
+        registerButton.setOnClickListener {
+            var intent = Intent(application, RegistrationActivity::class.java)
+            startActivity(intent)
         }
-    }
-
-    /**
-     * 返信メッセージをセット
-     * @param {String} message
-     */
-    private fun adaptMessage(message: String) {
-        reply.text = message
     }
 
     /**
