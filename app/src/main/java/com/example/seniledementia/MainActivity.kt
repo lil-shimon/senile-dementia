@@ -4,15 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.example.seniledementia.databinding.ActivityMainBinding
 import android.util.Log
-import android.view.View
-import com.google.android.gms.common.api.internal.RegisterListenerMethod
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import java.util.SimpleTimeZone
 
 class MainActivity : Activity() {
 
@@ -62,7 +58,7 @@ class MainActivity : Activity() {
         cheerButton.text = "応援"
 
         loginButton.setOnClickListener {
-            var intent = Intent(application, LoginActivity::class.java)
+            val intent = Intent(application, LoginActivity::class.java)
             startActivity(intent)
         }
 

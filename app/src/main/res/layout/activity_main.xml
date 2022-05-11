@@ -15,35 +15,37 @@
             app:layout_boxedEdges="all">
 
         <ScrollView android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent" tools:ignore="UselessParent">
             <LinearLayout android:layout_width="match_parent"
-                          android:layout_height="match_parent"
+                          android:layout_height="wrap_content"
                           android:id="@+id/main_layout"
                           android:orientation="vertical">
-                <LinearLayout android:layout_width="match_parent"
-                              android:layout_height="match_parent"
-                              android:orientation="horizontal">
-                    <Button android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/cheer_button"
-                    />
-                    <Button android:layout_width="70dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/sure_button"
-                    />
-                </LinearLayout>
-                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:onClick="gotoLogin"
-                        android:text="login"
-                        android:layout_gravity="center"
-                        android:id="@+id/launch_login_button"
-                />
-                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:id="@+id/launch_register_button"
-                        android:onClick="gotoRegister"
-                        android:text="Register"
-                        android:layout_gravity="center"
-                />
+                <FrameLayout
+                        android:id="@+id/fl_activity_main"
+                        android:layout_width="0dp"
+                             android:layout_height="0dp"/>
+<!--                <LinearLayout android:layout_width="match_parent"-->
+<!--                              android:layout_height="match_parent"-->
+<!--                              android:orientation="horizontal" tools:ignore="UselessParent">-->
+<!--                    <Button android:layout_width="70dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:id="@+id/cheer_button"-->
+<!--                            style="?android:attr/buttonBarButtonStyle"/>-->
+<!--                    <Button android:layout_width="70dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:id="@+id/sure_button"-->
+<!--                            style="?android:attr/buttonBarButtonStyle"/>-->
+<!--                </LinearLayout>-->
+<!--                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+<!--                        android:text="ログイン"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:id="@+id/launch_login_button"-->
+<!--                />-->
+<!--                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/launch_register_button"-->
+<!--                        android:text="登録"-->
+<!--                        android:layout_gravity="center"-->
+<!--                />-->
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
